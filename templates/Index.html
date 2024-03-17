@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Server Data Fetcher</title>
+</head>
+<body>
+    <h1>SQL Server Data Fetcher</h1>
+    <form method="post" action="/fetch_data">
+        <label for="server">Enter SQL Server address:</label>
+        <input type="text" name="server" required><br>
+
+        <label for="username">Enter SQL Server username:</label>
+        <input type="text" name="username" required><br>
+
+        <label for="password">Enter SQL Server password:</label>
+        <input type="password" name="password" required><br>
+
+        <label for="database">Select Database:</label>
+        <select name="database">
+            {% for db in databases %}
+                <option value="{{ db }}">{{ db }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="table">Select Table:</label>
+        <select name="table">
+            <!-- Populate with table options -->
+        </select><br>
+
+        <button type="submit">Fetch Data</button>
+    </form>
+</body>
+</html>
